@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../config/config");
 

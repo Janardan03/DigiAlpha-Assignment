@@ -1,4 +1,4 @@
-const User = require("..models/User");
+const User = require("../models/User");
 const { validationResult } = require("express-validator");
 
 exports.register = async (req, res) => {
@@ -27,9 +27,10 @@ exports.register = async (req, res) => {
 
         const token = user.getSignedJwtToken();
 
+        res.cookie("token", token);
+
         res.status(201).json({
             success: true,
-            token,
             user: {
                 id: user._id,
                 firstName: user.firstName,
@@ -87,9 +88,10 @@ exports.login = async (req, res) => {
 
         const token = user.getSignedJwtToken();
 
+        res.cookie("token", token);
+
         res.status(200).json({
             success: true,
-            token,
             user: {
               id: user._id,
               firstName: user.firstName,
@@ -98,9 +100,9 @@ exports.login = async (req, res) => {
               phone: user.phone,
               roles: user.roles.map(role => role.name)
             }
-          });
+        });
 
-    } catch {
+    } catch (err) {
         
         console.error(err);
         res.status(500).json({
