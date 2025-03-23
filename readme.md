@@ -29,7 +29,7 @@ Use these credentials to access the admin and manage users and access all apis.
 - DELETE /users/:id: Delete/Disable user  
 - PUT /users/:id/roles: Assign roles to the user  
 
-#### 3. Roles & Permissions
+#### 3. Roles & Permissions (can only be access by the user having admin access)
 
 - POST /roles/createRole: Creates a new role  
 - GET /roles/getRoles: Get all roles  
