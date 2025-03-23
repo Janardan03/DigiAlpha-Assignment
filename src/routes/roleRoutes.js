@@ -9,7 +9,7 @@ const router = express.Router();
 router.use(protect);
 router.use(authorize("admin"));
 
-router.post("/", hasPermission("create:role"), 
+router.post("/createRole", hasPermission("create:role"), 
     [
         check("name", "Role name is required").not().isEmpty(),
         check("permissions", "Permissions must be an array").isArray()  
@@ -17,7 +17,7 @@ router.post("/", hasPermission("create:role"),
     createRole    
 );
 
-router.get("/", hasPermission("read:roles"), getRoles);
+router.get("/getRoles", hasPermission("read:roles"), getRoles);
 
 module.exports = router;
 
