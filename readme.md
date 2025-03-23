@@ -14,6 +14,10 @@ Password: admin123
 
 Use these credentials to access the admin and manage users and access all apis.
 
+## Execute code commands
+- npm run migrate
+- npm start
+
 ## API Documentation
 
 #### 1. Registration & Authentication
